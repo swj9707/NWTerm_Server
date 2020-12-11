@@ -29,6 +29,10 @@ void RemoveSocketInfo(int nIndex);
 void err_quit(char *msg);
 void err_display(char *msg);
 
+char AdminID[6] = "ADMIN";
+char AdminPW[5] = "1234";
+
+
 int main(int argc, char *argv[])
 {
     int retval;
@@ -109,7 +113,8 @@ int main(int argc, char *argv[])
                 break;
             }
             else {
-                // 접속한 클라이언트 정보 출력
+                //IPv4 접속 한 상황
+                //접속한 클라이언트 정보 출력
                 printf("[TCPv4 서버] 클라이언트 접속: [%s]:%d\n",
                     inet_ntoa(clientaddrv4.sin_addr), ntohs(clientaddrv4.sin_port));
                 // 소켓 정보 추가
@@ -124,7 +129,8 @@ int main(int argc, char *argv[])
                 break;
             }
             else {
-                // 접속한 클라이언트 정보 출력
+                //IPv6 접속 한 상황
+                //접속한 클라이언트 정보 출력
                 char ipaddr[50];
                 DWORD ipaddrlen = sizeof(ipaddr);
                 WSAAddressToString((SOCKADDR *)&clientaddrv6, sizeof(clientaddrv6),
