@@ -164,6 +164,7 @@ int main(int argc, char *argv[])
                     for (j = 0; j < nTotalSockets; j++) {
                         SOCKETINFO *ptr2 = SocketInfoArray[j];
                         retval = send(ptr2->sock, ptr->buf, BUFSIZE, 0);
+                        //printf("%s\n", ptr->buf);
                         if (retval == SOCKET_ERROR) {
                             err_display("send()");
                             RemoveSocketInfo(j);
