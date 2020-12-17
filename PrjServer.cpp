@@ -29,10 +29,6 @@ void RemoveSocketInfo(int nIndex);
 void err_quit(char *msg);
 void err_display(char *msg);
 
-char AdminID[6] = "ADMIN";
-char AdminPW[5] = "1234";
-
-
 int main(int argc, char *argv[])
 {
     int retval;
@@ -164,7 +160,6 @@ int main(int argc, char *argv[])
                     for (j = 0; j < nTotalSockets; j++) {
                         SOCKETINFO *ptr2 = SocketInfoArray[j];
                         retval = send(ptr2->sock, ptr->buf, BUFSIZE, 0);
-                        //printf("%s\n", ptr->buf);
                         if (retval == SOCKET_ERROR) {
                             err_display("send()");
                             RemoveSocketInfo(j);
